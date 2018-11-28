@@ -2,6 +2,7 @@ package Game;
 
 import People.Person;
 import Rooms.Room;
+import Rooms.CastleRoom;
 import Rooms.WinningRoom;
 
 import java.util.Scanner;
@@ -28,7 +29,12 @@ public class Runner {
 		int x = (int)(Math.random()*building.length);
 		int y = (int)(Math.random()*building.length);
 		building[x][y] = new WinningRoom(x, y);
-		 
+
+		//Create a random castle room.
+		x = (int)(Math.random()*building.length);
+		y = (int)(Math.random()*building.length);
+		building[x][y] = new CastleRoom(x, y);
+
 		 //Setup player 1 and the input scanner
 		Person player1 = new Person("FirstName", "FamilyName", 0,0);
 		building[0][0].enterRoom(player1);
@@ -40,6 +46,12 @@ public class Runner {
 			if(validMove(move, player1, building))
 			{
 				System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+				// String bricks = "";
+				//for(int i = 0; i < building.length; i++){
+				//	for(int k = 0; k < building[i].length; k++){
+				//		System.out.println("X");
+				//	}
+				// } //
 				
 			}
 			else {
